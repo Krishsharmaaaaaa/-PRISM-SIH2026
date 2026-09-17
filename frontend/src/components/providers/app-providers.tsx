@@ -1,0 +1,26 @@
+"use client";
+
+import { useState } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import { ToastProvider } from "@/components/ui/toast";
+import { FloatingAiAssistant } from "@/components/ai/floating-ai-assistant";
+
+export function AppProviders({ children }: { children: React.ReactNode }) {
+  const [client] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: { staleTime: 30_000, retry: 1, refetchOnWindowFocus: false },
+        },
+      }),
+  );
+  return (
+    <QueryClientProvider client={client}>
+      <ToastProvider>
+        {children}
+        <FloatingAiAssistant />
+      </ToastProvider>
+    </QueryClientProvider>
+  );
+}

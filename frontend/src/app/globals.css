@@ -1,0 +1,104 @@
+@import "leaflet/dist/leaflet.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  background-color: #FBFAF7;
+  color: #211F1C;
+}
+
+* {
+  border-color: #E4E0D7;
+}
+
+::selection {
+  background-color: #F6E9EA;
+  color: #5E1A25;
+}
+
+/* Thin, quiet scrollbars that fit a GIS workspace rather than the browser default */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #CFC9BC;
+  border-radius: 8px;
+  border: 2px solid #FBFAF7;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9C978E;
+}
+
+:focus-visible {
+  outline: 2px solid #7A2331;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Google Maps controls should sit quietly within our own chrome, not fight it */
+.gm-style-cc,
+a[href^="https://maps.google.com/maps"] {
+  display: none !important;
+}
+
+/* Flowing Ambient Gradient Lights Keyframes with very low opacity */
+@keyframes floatLight1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.05;
+  }
+  50% {
+    transform: translate(80px, -50px) scale(1.15);
+    opacity: 0.09;
+  }
+}
+
+@keyframes floatLight2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1.1);
+    opacity: 0.04;
+  }
+  50% {
+    transform: translate(-70px, 45px) scale(0.9);
+    opacity: 0.08;
+  }
+}
+
+@keyframes floatLight3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.03;
+  }
+  50% {
+    transform: translate(50px, 60px) scale(1.12);
+    opacity: 0.07;
+  }
+}
+
+.animate-light-flow-1 {
+  animation: floatLight1 18s ease-in-out infinite;
+}
+
+.animate-light-flow-2 {
+  animation: floatLight2 22s ease-in-out infinite;
+}
+
+.animate-light-flow-3 {
+  animation: floatLight3 16s ease-in-out infinite;
+}

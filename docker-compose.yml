@@ -1,0 +1,26 @@
+# PRISM local/dev orchestration.
+# MongoDB Atlas is used as the database (set MONGODB_URI in backend/.env) -
+# there is no local Mongo container here on purpose, since the platform is
+# built around Atlas as specified.
+version: "3.9"
+services:
+  backend:
+    build: ./backend
+    env_file: ./backend/.env
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend/uploads:/app/uploads
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_BASE_URL: http://localhost:4000/api/v1
+        NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ${GOOGLE_MAPS_API_KEY}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped

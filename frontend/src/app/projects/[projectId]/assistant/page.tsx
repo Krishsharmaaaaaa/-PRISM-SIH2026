@@ -54,7 +54,7 @@ export default function AssistantPage() {
       <ProjectTopBar projectId={projectId} title="Ask PRISM" />
       <div className="flex-1 flex flex-col overflow-hidden">
         <div className="flex-1 overflow-y-auto">
-          <div className="mx-auto max-w-2xl px-8 py-8 space-y-5">
+          <div className="mx-auto max-w-2xl px-3 sm:px-8 py-4 sm:py-8 space-y-4 sm:space-y-5">
             {turns.map((turn, i) => (
               <div key={i} className={`flex gap-3 ${turn.role === "user" ? "flex-row-reverse" : ""}`}>
                 <div
@@ -65,7 +65,7 @@ export default function AssistantPage() {
                   {turn.role === "user" ? <User size={15} /> : <Sparkles size={15} />}
                 </div>
                 <div
-                  className={`max-w-md rounded-md px-4 py-2.5 text-sm leading-relaxed ${
+                  className={`max-w-[85%] sm:max-w-md rounded-md px-4 py-2.5 text-sm leading-relaxed ${
                     turn.role === "user" ? "bg-oxblood text-white" : "bg-surface border border-hairline text-ink"
                   }`}
                 >
@@ -79,7 +79,7 @@ export default function AssistantPage() {
           </div>
         </div>
 
-        <div className="border-t border-hairline bg-surface px-8 py-4">
+        <div className="border-t border-hairline bg-surface px-3 sm:px-8 py-3 sm:py-4">
           <div className="mx-auto max-w-2xl">
             {turns.length <= 1 && (
               <div className="mb-3 flex flex-wrap gap-2">

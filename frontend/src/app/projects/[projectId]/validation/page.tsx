@@ -34,9 +34,9 @@ export default function ValidationPage() {
     <div className="flex h-screen flex-col">
       <ProjectTopBar projectId={projectId} title="Boundary checks" />
       <div className="flex-1 overflow-y-auto">
-        <div className="mx-auto max-w-3xl px-8 py-8 space-y-6">
+        <div className="mx-auto max-w-3xl px-3 sm:px-8 py-4 sm:py-8 space-y-4 sm:space-y-6">
           <Card>
-            <CardBody className="flex items-center justify-between">
+            <CardBody className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <p className="font-semibold flex items-center gap-2">
                   <ShieldCheck size={18} className="text-oxblood" /> Check parcel boundaries
@@ -45,7 +45,7 @@ export default function ValidationPage() {
                   Finds parcels that overlap, cross themselves, are missing land, or were drawn twice.
                 </p>
               </div>
-              <Button onClick={() => runValidation.mutate()} disabled={runValidation.isPending}>
+              <Button onClick={() => runValidation.mutate()} disabled={runValidation.isPending} className="w-full sm:w-auto justify-center">
                 <RefreshCw size={16} className={runValidation.isPending ? "animate-spin" : ""} />
                 {runValidation.isPending ? "Checking…" : "Run check"}
               </Button>
@@ -56,7 +56,7 @@ export default function ValidationPage() {
 
           {report && (
             <>
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <StatBox label="Parcels checked" value={report.parcelsChecked} />
                 <StatBox label="Overlaps" value={report.overlapCount} warn={report.overlapCount > 0} />
                 <StatBox label="Gaps" value={report.gapCount} warn={report.gapCount > 0} />

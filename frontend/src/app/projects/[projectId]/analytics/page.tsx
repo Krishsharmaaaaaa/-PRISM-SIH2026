@@ -216,16 +216,16 @@ export default function AnalyticsPage() {
       <ProjectTopBar projectId={projectId} title="Cadastral Insights & Survey History" />
       
       <div className="flex-1 overflow-y-auto relative z-10">
-        <div className="mx-auto max-w-6xl px-4 sm:px-8 py-8 space-y-8">
+        <div className="mx-auto max-w-6xl px-3 sm:px-8 py-4 sm:py-8 space-y-6 sm:space-y-8">
           
           {/* Top Banner */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white/90 backdrop-blur-sm p-6 sm:p-7 rounded-3xl border border-[#EAE6DF] shadow-xl">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white/90 backdrop-blur-sm p-4 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#EAE6DF] shadow-xl">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-[#FDF2F4] px-3.5 py-1 border border-[#F5D0D6] text-xs font-bold text-[#7A1E2E] shadow-2xs mb-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#7A1E2E] animate-pulse" />
                 <span>Spatial Telemetry & Deed Ledger</span>
               </div>
-              <h2 className="font-black text-2xl sm:text-3xl text-[#111827] flex items-center gap-2.5 tracking-tight">
+              <h2 className="font-black text-xl sm:text-2xl md:text-3xl text-[#111827] flex items-center gap-2.5 tracking-tight">
                 <TrendingUp className="text-[#7A1E2E]" size={26} />
                 Cadastral Insights & Survey History
               </h2>
@@ -283,7 +283,7 @@ export default function AnalyticsPage() {
           )}
 
           {/* Metric KPI Cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <div className="p-5 rounded-2xl bg-white/90 backdrop-blur-xs border border-[#EAE6DF] hover:shadow-md hover:border-[#7A1E2E]/30 transition-all duration-300">
               <div className="flex items-center justify-between">
                 <div className="h-10 w-10 rounded-xl bg-rose-50 text-[#7A1E2E] flex items-center justify-center border border-rose-100">

@@ -279,11 +279,11 @@ export default function UploadPage() {
       <ProjectTopBar projectId={projectId} title="Drone & Aerial Imagery" />
       
       <div className="flex-1 overflow-y-auto relative z-10">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 space-y-8">
+        <div className="mx-auto max-w-5xl px-3 sm:px-6 py-4 sm:py-8 space-y-6 sm:space-y-8">
           
           {/* Main Upload Card */}
           <div className="rounded-3xl border border-[#EAE6DF] bg-white/90 backdrop-blur-sm shadow-xl overflow-hidden">
-            <div className="border-b border-[#EAE6DF] bg-[#FAF8F5]/80 px-6 py-5">
+            <div className="border-b border-[#EAE6DF] bg-[#FAF8F5]/80 px-4 sm:px-6 py-4 sm:py-5">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-[#FDF2F4] px-3.5 py-1 border border-[#F5D0D6] text-xs font-bold text-[#7A1E2E] shadow-2xs mb-2">
@@ -306,7 +306,7 @@ export default function UploadPage() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 space-y-6">
+            <div className="p-4 sm:p-8 space-y-5 sm:space-y-6">
               {error && (
                 <div className="rounded-2xl border border-red-200 bg-red-50/90 p-4 text-sm text-red-800 flex items-start gap-3 shadow-xs">
                   <X className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
@@ -386,7 +386,7 @@ export default function UploadPage() {
                       />
                     </div>
                   ) : (
-                    <div className="flex items-center justify-between rounded-xl border border-oxblood/30 bg-white p-4 shadow-subtle">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-xl border border-oxblood/30 bg-white p-4 shadow-subtle gap-3">
                       <div className="flex items-center gap-4 min-w-0">
                         {previewUrl ? (
                           <img
@@ -416,7 +416,7 @@ export default function UploadPage() {
                           variant="ghost"
                           size="sm"
                           onClick={clearFile}
-                          className="text-stone hover:text-red-600"
+                          className="text-stone hover:text-red-600 self-end sm:self-auto"
                         >
                           <X size={16} /> Remove
                         </Button>
@@ -476,7 +476,7 @@ export default function UploadPage() {
                   </button>
 
                   {showCoords && (
-                    <div className="mt-3 grid grid-cols-2 gap-3 p-3 bg-surfaceSunken/30 rounded-lg border border-hairline animate-slide-up">
+                    <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 p-3 bg-surfaceSunken/30 rounded-lg border border-hairline animate-slide-up">
                       <Input
                         placeholder="North-East Lat (e.g. 28.6710)"
                         value={neLat}
@@ -501,7 +501,7 @@ export default function UploadPage() {
                         onChange={(e) => setSwLng(e.target.value)}
                         disabled={isBusy}
                       />
-                      <p className="col-span-2 text-[11px] text-stoneLight">
+                      <p className="col-span-1 sm:col-span-2 text-[11px] text-stoneLight">
                         Leave blank to automatically georeference onto project center coordinates.
                       </p>
                     </div>
@@ -509,13 +509,13 @@ export default function UploadPage() {
                 </div>
 
                 {/* Submit Action Buttons */}
-                <div className="flex items-center gap-3 pt-2">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                   <Button
                     type="submit"
                     variant="primary"
                     size="lg"
                     disabled={!pendingFile || isBusy}
-                    className="flex-1 sm:flex-none px-6 py-3 text-sm font-semibold shadow-subtle"
+                    className="flex-1 sm:flex-none px-6 py-3 text-sm font-semibold shadow-subtle justify-center"
                   >
                     {isBusy ? (
                       <>
@@ -530,8 +530,8 @@ export default function UploadPage() {
                     )}
                   </Button>
 
-                  <Link href={`/projects/${projectId}`}>
-                    <Button variant="ghost" size="lg" disabled={isBusy}>
+                  <Link href={`/projects/${projectId}`} className="w-full sm:w-auto">
+                    <Button variant="ghost" size="lg" disabled={isBusy} className="w-full sm:w-auto justify-center">
                       Cancel
                     </Button>
                   </Link>

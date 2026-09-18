@@ -89,11 +89,11 @@ export function FloatingAiAssistant() {
   return (
     <>
       {/* Floating Circular AI Node Button */}
-      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3">
         {!isOpen && (
           <button
             onClick={() => setIsOpen(true)}
-            className="group relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-[#6D1B28] via-[#8F2837] to-[#B03A4B] shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 border-2 border-white/40 focus:outline-none p-1 overflow-visible"
+            className="group relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-gradient-to-tr from-[#6D1B28] via-[#8F2837] to-[#B03A4B] shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 border-2 border-white/40 focus:outline-none p-1 overflow-visible"
             aria-label="Ask PRISM AI Assistant"
             title="Ask PRISM AI Assistant"
           >
@@ -119,7 +119,7 @@ export function FloatingAiAssistant() {
 
       {/* Floating Chat Box Modal */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-[92vw] sm:w-[420px] max-h-[580px] h-[85vh] sm:h-[540px] flex flex-col rounded-2xl bg-white border border-hairlineStrong shadow-2xl overflow-hidden animate-slide-up">
+        <div className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 z-50 w-[calc(100vw-1.5rem)] sm:w-[420px] max-h-[85vh] sm:max-h-[580px] h-[80vh] sm:h-[540px] flex flex-col rounded-2xl bg-white border border-hairlineStrong shadow-2xl overflow-hidden animate-slide-up">
           
           {/* Header Bar */}
           <div className="flex items-center justify-between px-4 py-3.5 bg-gradient-to-r from-[#6D1B28] to-[#4F131C] text-white border-b border-oxblood-tint/20 select-none">

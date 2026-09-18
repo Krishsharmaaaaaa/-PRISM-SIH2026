@@ -499,7 +499,7 @@ export function ImageAiInspector({
   };
 
   return (
-    <div className="space-y-6 rounded-2xl border border-hairlineStrong bg-white p-6 shadow-float">
+    <div className="space-y-6 rounded-2xl border border-hairlineStrong bg-white p-3.5 sm:p-6 shadow-float">
       
       {/* Studio Header Bar */}
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between border-b border-hairline pb-5">
@@ -508,7 +508,7 @@ export function ImageAiInspector({
             <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-oxblood text-white font-bold text-xs shadow-xs">
               AI
             </span>
-            <h3 className="font-bold text-ink text-lg">AI Aerial Cadastral & Feature Extraction Studio</h3>
+            <h3 className="font-bold text-ink text-base sm:text-lg">AI Aerial Cadastral & Feature Extraction Studio</h3>
             <Badge tone="moss" className="text-xs font-semibold">
               <CheckCircle2 size={12} className="mr-1 text-emerald-600" /> Multimodal Vision Verified
             </Badge>
@@ -546,7 +546,7 @@ export function ImageAiInspector({
             <FileOutput size={13} className="mr-1.5" /> Full Cadastral Report
           </Button>
 
-          <div className="flex bg-surfaceSunken p-1 rounded-xl border border-hairline flex-wrap">
+          <div className="flex bg-surfaceSunken p-1 rounded-xl border border-hairline flex-wrap gap-1">
             <button
               onClick={() => setViewMode("compare_slider")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
@@ -682,15 +682,15 @@ export function ImageAiInspector({
               />
               
               {/* Left Label: Original */}
-              <div className="absolute top-4 left-4 z-20 flex items-center gap-2 bg-black/75 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/20 text-white shadow-md">
-                <span className="h-2 w-2 rounded-full bg-amber-400" />
-                <span className="font-mono text-xs font-bold">1. ORIGINAL RAW DRONE AERIAL</span>
+              <div className="absolute top-2 sm:top-4 left-2 sm:left-4 z-20 flex items-center gap-1.5 sm:gap-2 bg-black/75 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl border border-white/20 text-white shadow-md">
+                <span className="h-2 w-2 rounded-full bg-amber-400 shrink-0" />
+                <span className="font-mono text-[10px] sm:text-xs font-bold">1. ORIGINAL RAW DRONE AERIAL</span>
               </div>
 
               {/* Right Label: AI Prediction */}
-              <div className="absolute top-4 right-4 z-20 flex items-center gap-2 bg-[#6D1B28]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-rose-300/40 text-white shadow-md">
-                <Sparkles size={13} className="text-rose-200" />
-                <span className="font-mono text-xs font-bold">2. AI PREDICTION & DETECTION</span>
+              <div className="absolute top-2 sm:top-4 right-2 sm:right-4 z-20 flex items-center gap-1.5 sm:gap-2 bg-[#6D1B28]/90 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl border border-rose-300/40 text-white shadow-md">
+                <Sparkles size={13} className="text-rose-200 shrink-0" />
+                <span className="font-mono text-[10px] sm:text-xs font-bold">2. AI PREDICTION & DETECTION</span>
               </div>
 
               {/* Top Layer: AI Prediction / Vector Overlay with dynamic clip-path */}
@@ -811,15 +811,15 @@ export function ImageAiInspector({
               </div>
 
               {/* Bottom Overlay Legend Strip */}
-              <div className="absolute bottom-3 inset-x-3 z-20 flex flex-wrap items-center justify-between gap-2 bg-black/80 backdrop-blur-md px-4 py-2 rounded-xl border border-white/15 text-white text-[11px] font-mono">
-                <div className="flex items-center gap-4 flex-wrap">
-                  <span className="flex items-center gap-1.5"><span className="h-3 w-3 bg-red-500 rounded-xs border border-white" /> Buildings ({buildings.length})</span>
-                  <span className="flex items-center gap-1.5"><span className="h-3 w-3 bg-blue-500 rounded-xs border border-white" /> Roads ({roads.length})</span>
-                  <span className="flex items-center gap-1.5"><span className="h-3 w-3 bg-amber-500 rounded-xs border border-white" /> Parcels ({landUseZones.length})</span>
+              <div className="absolute bottom-2 sm:bottom-3 inset-x-2 sm:inset-x-3 z-20 flex flex-wrap items-center justify-between gap-1.5 sm:gap-2 bg-black/80 backdrop-blur-md px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/15 text-white text-[10px] sm:text-[11px] font-mono">
+                <div className="flex items-center gap-2 sm:gap-4 flex-wrap">
+                  <span className="flex items-center gap-1 sm:gap-1.5"><span className="h-2.5 w-2.5 sm:h-3 sm:w-3 bg-red-500 rounded-xs border border-white" /> Buildings ({buildings.length})</span>
+                  <span className="flex items-center gap-1 sm:gap-1.5"><span className="h-2.5 w-2.5 sm:h-3 sm:w-3 bg-blue-500 rounded-xs border border-white" /> Roads ({roads.length})</span>
+                  <span className="flex items-center gap-1 sm:gap-1.5"><span className="h-2.5 w-2.5 sm:h-3 sm:w-3 bg-amber-500 rounded-xs border border-white" /> Parcels ({landUseZones.length})</span>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
                   <span className="text-emerald-400 font-bold">✓ 99.4% Vector Overlap Accuracy</span>
-                  <span className="text-stoneLight">Drag slider to compare</span>
+                  <span className="text-stoneLight hidden sm:inline">Drag slider to compare</span>
                 </div>
               </div>
 

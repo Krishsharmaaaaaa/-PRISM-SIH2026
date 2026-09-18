@@ -50,6 +50,19 @@ async function bootstrap() {
   app.use(helmet({ crossOriginResourcePolicy: false }));
   app.use(compression());
 
+  // Ensure both /api/* and /api/v1/* requests resolve seamlessly
+  app.use((req: any, _res: any, next: any) => {
+    if (
+      typeof req.url === 'string' &&
+      req.url.startsWith('/api/') &&
+      !req.url.startsWith('/api/v1/') &&
+      !req.url.startsWith('/api/docs')
+    ) {
+      req.url = req.url.replace('/api/', '/api/v1/');
+    }
+    next();
+  });
+
   app.setGlobalPrefix(process.env.API_PREFIX ?? 'api');
   app.enableVersioning({ type: VersioningType.URI, defaultVersion: '1' });
 
